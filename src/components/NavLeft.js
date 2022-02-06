@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavPanel = () => {
+const NavLeft = () => {
   const links = [
     {
       id: 1,
@@ -40,4 +40,4 @@ const NavPanel = () => {
   );
 };
 
-export default NavPanel;
+export default NavLeft;
