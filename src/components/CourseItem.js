@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import image from '../assets/img/python.png';
 
 function CourseItem() {
   return (
     <Container className="course-container">
       <Row>
         <Col>
-          Image
+          <Image className="course-img" src={image} alt="" />
         </Col>
       </Row>
       <Row>
