@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { coursesReducer } from './courses/courses';
 
 const reducer = combineReducers({
-    coursesReducer,
+  coursesReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(logger, thunk));
