@@ -1,12 +1,16 @@
-import React from 'react';
-import NavLeft from './components/NavLeft';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from './pages/Home';
+import store from './redux/configureStore';
 
-function App() {
-  return (
-    <div className="App">
-      <NavLeft />
-    </div>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;
