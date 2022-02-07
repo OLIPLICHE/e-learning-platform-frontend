@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import { coursesReducer } from './courses/courses';
+import coursesReducer from './courses/courses';
 
 const reducer = combineReducers({
   coursesReducer,
