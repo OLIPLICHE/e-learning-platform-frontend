@@ -1,7 +1,0 @@
-const { data } = await axios.post("https://example.com/api/auth", {
-  email: "email@example.com",
-  password: "coolpassword123",
-});
-
-const token = data.data.token;
-const user_id = data.data.user_id;
