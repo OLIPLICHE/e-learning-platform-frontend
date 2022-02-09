@@ -5,7 +5,7 @@ import image from '../assets/img/python.png';
 
 function CourseItem() {
   return (
-    <Container className="course-container">
+    <Container className="course-item">
       <Row>
         <Col>
           <Image className="course-img" src={image} alt="" />
@@ -13,16 +13,13 @@ function CourseItem() {
       </Row>
       <Row>
         <Col>
-          <h2>Course number</h2>
+          <h2>course number</h2>
         </Col>
       </Row>
       <Row>
         <Col>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
-            facilis quidem voluptatem non doloribus voluptatum. Itaque earum,
-            recusandae voluptatibus est facere id explicabo officiis dolores eum
-            a doloremque suscipit esse.
+          <p className="fs-6 text fw-light">
+            zzzzzzzzzz
           </p>
         </Col>
       </Row>
