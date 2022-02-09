@@ -10,3 +10,7 @@ export const api = axios.create({
 export const baseApi = axios.create({
     baseURL: `${END_POINT}`,
 });
+
+console.log(api.defaults.baseURL)
+console.log(baseApi.defaults.baseURL)
+
