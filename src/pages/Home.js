@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
       <div className="Container">
-        <div className="icon">
+        <div className="vis">
           <FontAwesomeIcon icon={faBars} onClick={handleShow} />
         </div>
         <div className="home">

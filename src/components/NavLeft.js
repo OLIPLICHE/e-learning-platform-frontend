@@ -16,7 +16,7 @@ const NavLeft = () => {
     {
       id: 3,
       path: '/create_course',
-      text: 'Create a course',
+      text: 'Create course',
     },
   ];
 
