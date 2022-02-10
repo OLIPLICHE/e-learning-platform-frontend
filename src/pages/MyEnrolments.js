@@ -1,6 +1,7 @@
 import React from 'react';
 import course from '../images/course.jpg';
 import NavLeft from '../components/NavLeft';
+import Enrolment from '../components/Enrolment';
 
 function MyEnrolment() {
     const enrolments = [1, 2, 3, 4, 5];
@@ -18,7 +19,7 @@ function MyEnrolment() {
           </h2>
           <div className="enrolment">
           {enrolments.map((enrolment) => (
-            <NavLink to="/reserv" exact="true" key={enrolment}></NavLink>
+            <Enrolment key={enrolment} />
           ))}
         </div>
         </div>
