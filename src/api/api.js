@@ -36,6 +36,7 @@ export const login = async (user) => {
   return { authToken, currentUser };
 };
 
+// function that allows a user to sign out
 export const logout = async () => {
   await api.delete('/users/sign_out');
 };
