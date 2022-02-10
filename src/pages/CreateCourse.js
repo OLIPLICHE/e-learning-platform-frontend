@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './createcourse.css';
 import { Container, Form, Button } from 'react-bootstrap';
 import * as Yup from 'yup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { addCourse } from '../redux/courses/courses';
+import NavLeft from '../components/NavLeft';
+import learning from '../images/learning.png';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -33,8 +38,21 @@ const validationSchema = Yup.object().shape({
 
 const CreateCourse = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <section className="form-container">
+      <div className="p-2 vis">
+        <FontAwesomeIcon icon={faBars} onClick={handleShow} className="text-white" />
+      </div>
+      <div className="nav">
+        <img src={learning} className="learning-logo" alt="learning Hotel Logo" />
+        <NavLeft />
+      </div>
       <Container className="my_container">
         <Formik
           initialValues={{

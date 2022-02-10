@@ -3,6 +3,9 @@ const GET_SINGLE_ENROLMENT = 'enrolment/get_single_enrolment';
 const GET_ALL_ENROLMENT = 'enrolment/get_all_enrolment';
 const DELETE_ENROLMENT = 'enrolment/delete_enrolment';
 
+const END_POINT = 'http://localhost:3000';
+const API_ROUTE = '/api/v1/';
+
 export const createEnrolmentAction = (payload) => ({
   type: CREATE_ENROLMENT,
   payload,
@@ -22,6 +25,20 @@ export const deleteAEnrolmentAction = (payload) => ({
   type: DELETE_ENROLMENT,
   payload,
 });
+
+export const createReservation = (payload) => async (dispatch) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${END_POINT}${API_ROUTE}reservations`, {
+    method: 'POST',
+    headers: {
+      Authorization: `${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  dispatch(createEnrolmentAction(data));
+};
 
 const initialState = [];
 
