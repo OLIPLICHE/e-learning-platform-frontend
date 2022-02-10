@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import {
   HashRouter as Router, Route, Routes,
 } from 'react-router-dom';
@@ -7,6 +8,7 @@ import LogIn from './pages/LogIn';
 import Auth, { AuthRoute } from './components/Auth';
 import CourseDetails from './components/CourseDetails';
 import CreateCourse from './pages/CreateCourse';
+import MyEnrolment from './pages/MyEnrolments';
 import AddEnrolment from './pages/AddEnrolment';
 
 const App = () => (
@@ -14,43 +16,51 @@ const App = () => (
     <Routes>
       <Route
         path="/"
-        element={(
+        element={
           <Auth>
             <Home />
           </Auth>
-        )}
+        }
       />
       <Route
         path="/users/login"
-        element={(
+        element={
           <AuthRoute>
             <LogIn />
           </AuthRoute>
-        )}
+        }
       />
       <Route
         path="/users/signup"
-        element={(
+        element={
           <AuthRoute>
             <SignUp />
           </AuthRoute>
-        )}
+        }
       />
       <Route
         path="/course_details"
-        element={(
+        element={
           <Auth>
             <CourseDetails />
           </Auth>
-        )}
+        }
       />
       <Route
         path="/create_course"
-        element={(
+        element={
           <Auth>
             <CreateCourse />
           </Auth>
-        )}
+        }
+      />
+      <Route
+        path="/enrolments"
+        element={
+          <Auth>
+            <MyEnrolment />
+          </Auth>
+        }
       />
 
       <Route
@@ -60,4 +70,5 @@ const App = () => (
     </Routes>
   </Router>
 );
+
 export default App;
