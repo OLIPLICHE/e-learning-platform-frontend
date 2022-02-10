@@ -7,6 +7,7 @@ import CourseItem from '../components/CourseItem';
 import NavLeft from '../components/NavLeft';
 import { getCourses } from '../redux/courses/courses';
 import learning from '../images/learning.png';
+
 const Home = () => {
   const courses = useSelector((state) => state.coursesReducer);
   const dispatch = useDispatch();
@@ -32,22 +33,22 @@ const Home = () => {
             <h2>Please select a course for reservation</h2>
             <div className="courses">
               {courses && courses.map((course) => (
-                 <CourseItem course={course} key={course.id} courses={courses} />
-                 ))}
-               </div>
-             </div>
-           </div>
-         </div>
-         <Offcanvas show={show} onHide={handleClose}>
-           <Offcanvas.Header closeButton>
-             <Offcanvas.Title>Learning</Offcanvas.Title>
-           </Offcanvas.Header>
-           <Offcanvas.Body>
-             Some text as placeholder. In real life you can have the elements you
-             have chosen. Like, text, images, lists, etc.
-           </Offcanvas.Body>
-         </Offcanvas>
-       </>
-     );
-   };
-   export default Home;
+                <CourseItem course={course} key={course.id} courses={courses} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Learning</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+};
+export default Home;
