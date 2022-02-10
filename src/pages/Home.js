@@ -6,51 +6,57 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CourseItem from '../components/CourseItem';
 import NavLeft from '../components/NavLeft';
 import { getCourses } from '../redux/courses/courses';
-import { getEnrolments } from '../redux/enrolments/enrolments';
 import learning from '../images/learning.png';
 
 const Home = () => {
   const courses = useSelector((state) => state.coursesReducer);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getCourses());
-    dispatch(getEnrolments());
   }, [dispatch]);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
       <div className="Container">
-        <div className="vis">
+        <div className="p-2 vis">
           <FontAwesomeIcon icon={faBars} onClick={handleShow} />
         </div>
         <div className="home">
           <div className="nav">
-            <img src={learning} className="lunar-logo" alt="Learning" />
+            <img src={learning} className="learning-logo" alt="learning Hotel Logo" />
             <NavLeft />
           </div>
           <div className="main">
-            <h1>Lunar&apos;s courses</h1>
-            <h2>Please select a course for reservation</h2>
+            <h1>Elearning course</h1>
+            {courses.length === 0 ? (
+              <h2>Please create a course</h2>
+            ) : (
+              <h2>Please select a course for enrolment</h2>
+            )}
             <div className="courses">
-              {courses && courses.map((course) => (
-                <CourseItem course={course} key={course.id} courses={courses} />
-              ))}
+              {courses && (
+                courses.map((course) => (
+                  <CourseItem course={course} key={course.id} courses={courses} />
+                )))}
             </div>
           </div>
         </div>
       </div>
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas className="darkened-off" show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Learning</Offcanvas.Title>
+          <Offcanvas.Title><img src={learning} className="learning-logo-m" alt="learning Hotel Logo" /></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <NavLeft className="text-black" />
         </Offcanvas.Body>
       </Offcanvas>
     </>
   );
 };
+
 export default Home;
