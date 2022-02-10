@@ -46,7 +46,7 @@ const NavLeft = () => {
             </li>
           ))}
 
-          {isAuthenticated && (
+            {isAuthenticated && (
             <li>
               <a href="/" className="nav-link" onClick={handleLogout}>Log Out</a>
             </li>
