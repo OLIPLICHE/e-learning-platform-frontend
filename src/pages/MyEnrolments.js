@@ -3,6 +3,7 @@ import course from '../images/course.jpg';
 import NavLeft from '../components/NavLeft';
 
 function MyEnrolment() {
+    const enrolments = [1, 2, 3, 4, 5];
     return (
       <div className="home">
         <div className="nav">
@@ -15,6 +16,11 @@ function MyEnrolment() {
             You are able to cancel the Enrolment before 24 hours of the
             Enrolment date
           </h2>
+          <div className="enrolment">
+          {enrolments.map((enrolment) => (
+            <NavLink to="/reserv" exact="true" key={enrolment}></NavLink>
+          ))}
+        </div>
         </div>
       </div>
     );
