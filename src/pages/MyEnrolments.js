@@ -1,6 +1,5 @@
 import React from 'react';
 import course from '../images/course.jpg';
-import NavLeft from '../components/NavLeft';
 import Enrolment from '../components/Enrolment';
 
 function MyEnrolment() {
