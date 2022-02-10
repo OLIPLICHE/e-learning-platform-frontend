@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// the navigation panel
 const NavLeft = () => {
   const links = [
     {
