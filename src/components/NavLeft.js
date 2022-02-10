@@ -28,27 +28,23 @@ const NavLeft = () => {
       path: '/create_course',
       text: 'Create course',
     },
-    {
-      id: 4,
-      path: '/course_details',
-      text: 'course Details',
-    },
   ];
+
   return (
     <section>
       <nav>
         <ul>
           {links.map((link) => (
-            <li key={link.id} className="nav-link">
+            <li key={link.id} className="nav-link color-switch">
               <NavLink to={link.path} exact="true">
                 {link.text}
               </NavLink>
             </li>
           ))}
 
-            {isAuthenticated && (
+          {isAuthenticated && (
             <li>
-              <a href="/" className="nav-link" onClick={handleLogout}>Log Out</a>
+              <a href="/" className="nav-link color-switch" onClick={handleLogout}>Log Out</a>
             </li>
           )}
         </ul>
@@ -56,4 +52,5 @@ const NavLeft = () => {
     </section>
   );
 };
+
 export default NavLeft;
