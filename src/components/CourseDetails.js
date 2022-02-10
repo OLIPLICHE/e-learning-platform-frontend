@@ -1,76 +1,78 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import '../courseDetails.css';
 import { Offcanvas } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import NavLeft from './NavLeft';
-import Image from '../images/course.jpg';
-import learning from '../images/learning.png';
+import course from '../images/course.jpg';
 
 const CourseDetails = () => {
+  const courses = useSelector((state) => state.coursesReducer);
+  const { id } = useParams();
+
+  const course = courses.filter((r) => r.id === parseInt(id, 10));
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const coursesDb = {
-    title: 'Course',
-    city: 'test-city',
-    price: '100',
-    description: 'Course description',
-    level: 'Beginner',
-  };
   return (
     <main className="contain">
       <div className="vis">
         <FontAwesomeIcon icon={faBars} onClick={handleShow} />
       </div>
-      <section className="displaycourse">
+      <section className="displayCourse">
         <div className="nav">
-          <img src={learning} className="learning-logo" alt="" />
+          <img src={course} className="course-logo" alt="" />
           <NavLeft />
         </div>
-        <div className="details marginFive leftMargin">
-          <div className="displayTwo">
-            <img className="courseImage" src={Image} alt="hotel course" />
-          </div>
-          <div className="displayThree">
-            <h1 className="upperCase">{coursesDb.name}</h1>
-            <p>
-              City:
-              {coursesDb.city}
-            </p>
-            <p>
-              course price: $z
-              {coursesDb.price}
-            </p>
-            <p>
-              description
-              {coursesDb.description}
-            </p>
-            <ul>
-              {coursesDb.levels.map((level) => (
-                <li key={level}>{level}</li>
-              ))}
-            </ul>
-            <button type="button" className="buttonConfig upperClass">
-              <NavLink to="/add_reservation" exact="true">
-                Add Reservation
-              </NavLink>
-            </button>
-          </div>
-        </div>
+        <ul>
+          {course && course.map((single) => (
+            <li key={single.id}>
+              <div className="details marginFive leftMargin">
+                <div className="displayTwo">
+                  <img className="courseImage" src={single.picture} alt="course" />
+                </div>
+                <div className="displayThree">
+                  <h1 className="upperCase">{single.title}</h1>
+                  <p>
+                    City:
+                    {single.city}
+                  </p>
+                  <p>
+                    course price: $z
+                    {single.price}
+                  </p>
+                  <p>
+                    course price:
+                    {single.level}
+                  </p>
+                  <p>
+                    course description:
+                    {single.description}
+                  </p>
+                  <button type="button" className="buttonConfig">
+                    Add Enrolment
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+
       </section>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>learning</Offcanvas.Title>
+          <Offcanvas.Title>Learning</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc...
+          have chosen. Like, text, images, lists, etc.
         </Offcanvas.Body>
       </Offcanvas>
     </main>
   );
 };
-
 export default CourseDetails;
