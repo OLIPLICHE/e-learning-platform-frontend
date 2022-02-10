@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import course from '../images/course.jpg';
 
-const CourseItem = ({ course, courses }) => {
+const CourseItem = ({ course}) => {
   const {
     title, city, price, level, description, id,
   } = course;
@@ -62,7 +62,7 @@ const CourseItem = ({ course, courses }) => {
             </h3>
           )}
           {id && (
-            <Link to={{ pathname: 'course_details/' }}>Click me</Link>
+            <Link to={{ pathname: `course_details/${id}` }}>Click me</Link>
           )}
         </Col>
       </Row>

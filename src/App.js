@@ -39,7 +39,7 @@ const App = () => (
         }
       />
       <Route
-        path="/course_details"
+        path="/course_details/:id"
         element={
           <Auth>
             <CourseDetails />
