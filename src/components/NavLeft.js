@@ -1,8 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadCurrentUser, logout } from '../redux/auth';
 
-// the navigation panel
 const NavLeft = () => {
+  const isAuthenticated = useSelector(loadCurrentUser);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch(logout);
+  };
+
   const links = [
     {
       id: 1,
@@ -12,7 +21,7 @@ const NavLeft = () => {
     {
       id: 2,
       path: '/enrolments',
-      text: 'My Enrolments',
+      text: 'My enrolments',
     },
     {
       id: 3,
@@ -25,7 +34,6 @@ const NavLeft = () => {
       text: 'course Details',
     },
   ];
-
   return (
     <section>
       <nav>
@@ -37,10 +45,15 @@ const NavLeft = () => {
               </NavLink>
             </li>
           ))}
+
+          {isAuthenticated && (
+            <li>
+              <a href="/" className="nav-link" onClick={handleLogout}>Log Out</a>
+            </li>
+          )}
         </ul>
       </nav>
     </section>
   );
 };
-
 export default NavLeft;
