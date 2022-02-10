@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Auth, { AuthRoute } from './components/Auth';
+import CourseDetails from './components/CourseDetails';
+import CreateCourse from './pages/CreateCourse';
 
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
@@ -31,6 +33,23 @@ const App = () => (
           <AuthRoute>
             <SignUp />
           </AuthRoute>
+        )}
+      />
+      <Route
+        path="/course_details"
+        element={(
+          <Auth>
+            <CourseDetails />
+          </Auth>
+
+        )}
+      />
+      <Route
+        path="/create_course"
+        element={(
+          <Auth>
+            <CreateCourse />
+          </Auth>
         )}
       />
     </Routes>

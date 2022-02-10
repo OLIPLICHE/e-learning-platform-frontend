@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// the navigation panel
 const NavLeft = () => {
   const links = [
     {
@@ -11,12 +12,17 @@ const NavLeft = () => {
     {
       id: 2,
       path: '/enrolments',
-      text: 'My enrolments',
+      text: 'My Enrolments',
     },
     {
       id: 3,
       path: '/create_course',
       text: 'Create course',
+    },
+    {
+      id: 4,
+      path: '/course_details',
+      text: 'course Details',
     },
   ];
 
@@ -25,11 +31,8 @@ const NavLeft = () => {
       <nav>
         <ul>
           {links.map((link) => (
-            <li key={link.id}>
-              <NavLink
-                to={link.path}
-                exact="true"
-              >
+            <li key={link.id} className="nav-link">
+              <NavLink to={link.path} exact="true">
                 {link.text}
               </NavLink>
             </li>

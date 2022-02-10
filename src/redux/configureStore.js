@@ -3,11 +3,13 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import coursesReducer from './courses/courses';
+import { coursesReducer } from './courses/courses';
 import authReducer from './auth';
+import enrolmentsReducer from './enrolments/enrolments';
 
 const reducer = combineReducers({
   coursesReducer,
+  enrolmentsReducer,
   auth: authReducer,
 });
 
