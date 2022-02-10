@@ -3,7 +3,7 @@ import course from '../images/course.jpg';
 import Enrolment from '../components/Enrolment';
 
 function MyEnrolment() {
-    const enrolments = [1, 2, 3, 4, 5];
+    const enrolments = useSelector((state) => state.enrolmentsReducer);
     return (
       <div className="home">
         <div className="nav">
@@ -18,7 +18,7 @@ function MyEnrolment() {
           </h2>
           <div className="enrolment">
           {enrolments.map((enrolment) => (
-            <Enrolment key={enrolment} />
+            <Enrolment enrolment={enrolment} key={enrolment.id} />
           ))}
         </div>
         </div>
