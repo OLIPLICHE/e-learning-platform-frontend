@@ -26,6 +26,7 @@ export const signup = async (user) => {
   return { authToken, currentUser };
 };
 
+// function that allows a user to login
 export const login = async (user) => {
   const response = await baseApi.post('/users/login', { user });
   const authToken = response.headers.authorization;
