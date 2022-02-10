@@ -7,6 +7,7 @@ import LogIn from './pages/LogIn';
 import Auth, { AuthRoute } from './components/Auth';
 import CourseDetails from './components/CourseDetails';
 import CreateCourse from './pages/CreateCourse';
+import AddEnrolment from './pages/AddEnrolment';
 
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
@@ -41,7 +42,6 @@ const App = () => (
           <Auth>
             <CourseDetails />
           </Auth>
-
         )}
       />
       <Route
@@ -52,8 +52,12 @@ const App = () => (
           </Auth>
         )}
       />
+
+      <Route
+        path="/add_enrolment"
+        element={(<AddEnrolment />)}
+      />
     </Routes>
   </Router>
 );
-
 export default App;
