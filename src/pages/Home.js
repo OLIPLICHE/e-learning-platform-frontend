@@ -6,6 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CourseItem from '../components/CourseItem';
 import NavLeft from '../components/NavLeft';
 import { getCourses } from '../redux/courses/courses';
+import { getEnrolments } from '../redux/enrolments/enrolments';
 import learning from '../images/learning.png';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCourses());
+    dispatch(getEnrolments());
   }, [dispatch]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
