@@ -42,7 +42,7 @@ export const deleteEnrolment = (id) => async (dispatch) => {
       Authorization: `${token}`,
     },
   });
-  dispatch(deleteAEnrolmentAction(id));
+  dispatch(deleteEnrolmentAction(id));
 };
 
 export const createEnrolment = (payload) => async (dispatch) => {

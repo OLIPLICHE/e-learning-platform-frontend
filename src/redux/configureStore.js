@@ -6,7 +6,6 @@ import storage from 'redux-persist/lib/storage';
 import { coursesReducer } from './courses/courses';
 import authReducer from './auth';
 import { enrolmentsReducer } from './enrolments/enrolments';
-import enrolmentsReducer from './enrolments/enrolments';
 
 const reducer = combineReducers({
   coursesReducer,
