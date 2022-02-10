@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import './createcourse.css';
-import { Container, Form, Button } from 'react-bootstrap';
+import './createCourse.css';
+import {
+  Container, Form, Button, Offcanvas,
+} from 'react-bootstrap';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -12,10 +14,10 @@ import NavLeft from '../components/NavLeft';
 import learning from '../images/learning.png';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, '*Names must have at least 2 characters')
-    .max(50, '*Names can\'t be longer than 50 characters')
-    .required('*Name is required'),
+  title: Yup.string()
+    .min(2, '*titles must have at least 2 characters')
+    .max(150, '*titles can\'t be longer than 50 characters')
+    .required('*title is required'),
 
   city: Yup.string()
     .min(2, '*City must have at least 2 characters')
@@ -27,10 +29,10 @@ const validationSchema = Yup.object().shape({
     .required('*price is required'),
 
   level: Yup.string()
-    .required('*Course level  is required'),
+    .required('*Level is required'),
 
-  descriptions: Yup.string()
-    .required('*Amenity is required'),
+  description: Yup.string()
+    .required('*description is required'),
 
   picture: Yup.string()
     .required('*Picture is required'),
@@ -44,6 +46,7 @@ const CreateCourse = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <section className="form-container">
       <div className="p-2 vis">
@@ -60,15 +63,19 @@ const CreateCourse = () => {
             city: '',
             price: 0,
             level: '',
-            descriptions: '',
+            description: '',
             picture: '',
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            dispatch(addCourse(values));
             setSubmitting(true);
-            resetForm();
+            dispatch(addCourse(values));
             setSubmitting(false);
+            resetForm();
+            setTimeout(() => {
+              navigate('/');
+              window.location.reload(true);
+            }, 1000);
           }}
         >
           {({
@@ -80,38 +87,38 @@ const CreateCourse = () => {
             handleSubmit,
             isSubmitting,
           }) => (
-            <Form onSubmit={handleSubmit} className="mx-auto row row-cols-1 row-cols-lg-2 bg-white p-4 d-flex justify-content-center align-items-center">
+            <Form onSubmit={handleSubmit} className="mx-auto row row-cols-1 row-cols-lg-2 bg-white p-4 d-flex justify-content-center align-items-center form">
               <Form.Group className="col mb-3" controlId="formBasicName">
                 <Form.Label>Course Title</Form.Label>
                 <Form.Control
                   type="text"
                   name="title"
-                  placeholder="Enter title"
+                  placeholder="Enter name"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.title}
-                  className={touched.title && errors.title ? 'error' : null}
+                  value={values.name}
+                  className={touched.name && errors.name ? 'error' : null}
                 />
-                {touched.title && errors.title ? (
-                  <div className="error-message">{errors.title}</div>
+                {touched.name && errors.name ? (
+                  <div className="error-message">{errors.name}</div>
                 ) : null}
               </Form.Group>
 
               <Form.Group className="col mb-3" controlId="formBasicCity">
                 <Form.Label>City</Form.Label>
                 <Form.Select
-                  aria-label="Select course City Field"
+                  aria-label="Select Hotel City Field"
                   name="city"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.city}
                   className={touched.city && errors.city ? 'error' : null}
                 >
-                  <option>Select Hotel City</option>
+                  <option>Select course City</option>
                   <option value="Abidjan">Abidjan</option>
-                  <option value="Yamoussoukro">Yamoussoukro</option>
-                  <option value="Lagos">Lagos</option>
+                  <option value="Brazzaville">Brazzaville</option>
                   <option value="Accra">Accra</option>
+                  <option value="Yakro">Yakro</option>
                 </Form.Select>
                 {touched.city && errors.city ? (
                   <div className="error-message">{errors.city}</div>
@@ -119,35 +126,36 @@ const CreateCourse = () => {
               </Form.Group>
 
               <Form.Group className="col mb-3" controlId="formBasicPrice">
-                <Form.Label>Price($)</Form.Label>
+                <Form.Label>price($)</Form.Label>
                 <Form.Control
                   type="number"
                   name="price"
-                  placeholder="Enter price"
+                  placeholder="Enter Price"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.price}
-                  className={touched.price && errors.price ? 'error' : null}
+                  value={values.Price}
+                  className={touched.Price && errors.Price ? 'error' : null}
                 />
-                {touched.price && errors.price ? (
-                  <div className="error-message">{errors.price}</div>
+                {touched.Price && errors.Price ? (
+                  <div className="error-message">{errors.Price}</div>
                 ) : null}
               </Form.Group>
 
               <Form.Group className="col mb-3" controlId="formBasicCourseLevel">
-                <Form.Label>Course level </Form.Label>
+                <Form.Label>Course Level</Form.Label>
                 <Form.Select
-                  aria-label="Select Course level  Field"
+                  aria-label="Select Course Level Field"
                   name="level"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.level}
                   className={touched.level && errors.level ? 'error' : null}
                 >
-                  <option>Select Course level </option>
-                  <option value="Single">Beginner</option>
-                  <option value="Double">Middle</option>
-                  <option value="Mini Suite">Advanced</option>
+                  <option>Select Course Level</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Middle">Middle</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="Expert">Expert</option>
                 </Form.Select>
 
                 {touched.level && errors.level ? (
@@ -155,26 +163,33 @@ const CreateCourse = () => {
                 ) : null}
               </Form.Group>
 
-              <Form.Group controlId="formBasicDescriptions" className="col mb-3">
-                <Form.Label>Choose An Amenity</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="descriptions"
+              <Form.Group className="col mb-3" controlId="formBasicDescription">
+                <Form.Label>Choose An description</Form.Label>
+                <Form.Select
+                  aria-label="Select description Field"
+                  name="description"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.description}
                   className={touched.description && errors.description ? 'error' : null}
-                />
+                >
+                  <option>Select Your description</option>
+                  <option value="Ruby capstone project">Ruby capstone project</option>
+                  <option value="Javascript module">Javascript module</option>
+                  <option value="Ruby on rails">Ruby on rails</option>
+                </Form.Select>
+
                 {touched.description && errors.description ? (
                   <div className="error-message">{errors.description}</div>
                 ) : null}
               </Form.Group>
 
               <Form.Group controlId="formBasicFile" className="col mb-3">
-                <Form.Label>Choose An Image</Form.Label>
+                <Form.Label>Add Your Image Link</Form.Label>
                 <Form.Control
-                  type="file"
+                  type="text"
                   name="picture"
+                  placeholder="Add an image URL"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.picture}
@@ -186,7 +201,7 @@ const CreateCourse = () => {
               </Form.Group>
 
               <div className="w-md-75 mx-auto d-flex justify-content-center align-items-center mt-4">
-                <Button type="submit" disabled={isSubmitting} className="bg-blue-600 w-50 mx-auto">
+                <Button type="submit" disabled={isSubmitting} className="w-50 mx-auto course-btn">
                   Submit
                 </Button>
               </div>
@@ -194,6 +209,14 @@ const CreateCourse = () => {
           )}
         </Formik>
       </Container>
+      <Offcanvas className="darkened-off" show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title><img src={learning} className="learning-logo-m" alt="learning Hotel Logo" /></Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <NavLeft />
+        </Offcanvas.Body>
+      </Offcanvas>
     </section>
   );
 };
