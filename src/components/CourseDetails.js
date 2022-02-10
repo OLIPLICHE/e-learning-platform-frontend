@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Offcanvas } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -51,8 +52,10 @@ const CourseDetails = () => {
                 <li key={level}>{level}</li>
               ))}
             </ul>
-            <button type="button" className="buttonConfig">
-              Add enrolments
+            <button type="button" className="buttonConfig upperClass">
+              <NavLink to="/add_reservation" exact="true">
+                Add Reservation
+              </NavLink>
             </button>
           </div>
         </div>
