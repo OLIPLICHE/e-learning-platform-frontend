@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# e-learning platform FRONTEND
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
+This is a react app which will serve as the front end app for e-learning platform, the project is still under development, but some of the functionalites are finalized in the backend & front end, Which you can check it out.
 
-## Available Scripts
+## Demo Link
+[Click here to see live demo](https://e-learning-platform-p.netlify.app/)
 
-In the project directory, you can run:
+## The learning objective of this project are
+- Create react front end app
+- Connect react front end app to rails back end
+- Use API end point to get data
+- Fetch data from the API
 
-### `npm start`
+## Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- Redux
+- Materia UI
+- Git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+To get a local copy up and running follow these simple example steps.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Setup
+- ```git@github.com:OLIPLICHE/e-learning-platform-frontend.git```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ```cd e-learning-platform-frontend```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running The App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Run ```npm install``` to install all the necessary gems
+- Make sure to run our [Rails backend](https://e-learning-back.herokuapp.com/) application first before running the React app so that it takes up the `port 3000` for the API to work.
 
-### `npm run eject`
+- Once the back end is runing on `port 3000` then start the react app and you will be prompted to run the server on another port like `port 3001`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Authors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👤 **Yannick-Noel Aka**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- GitHub: [@codecaiine](https://github.com/codecaiine/)
+- LinkedIn: [Yannick-Noel AKA](https://www.linkedin.com/in/yannick-no%C3%ABl-aka/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👤 **Mavoungou Paka**
 
-## Learn More
+- GitHub: [@OLIPLICHE](https://github.com/OLIPLICHE)
+- LinkedIn: [Mavoungou Paka](https://www.linkedin.com/in/olipliche/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions, issues, and feature requests are welcome!
 
-### Code Splitting
+Feel free to check the [issues page](https://github.com/OLIPLICHE/e-learning-platform/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Show your support
 
-### Analyzing the Bundle Size
+Give a ⭐️ if you like this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgments
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Microverse
