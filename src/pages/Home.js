@@ -39,9 +39,9 @@ const Home = () => {
               <h2>Please enroll to a course</h2>
             )}
             <div className="ziiz">
-              {/* {courses.map((course) => (
+              {courses && (courses.map((course) => (
                 <CourseItem course={course} key={course.id} courses={courses} />
-              ))} */}
+              )))}
             </div>
           </div>
         </div>
