@@ -16,7 +16,7 @@ const SignUp = () => {
     <div className="flex h-screen bg-white">
       <div className="w-full max-w-sm m-auto bg-gray-200 rounded p-5">
         <header>
-                Create an account
+          Create an account
         </header>
         <form className="col" onSubmit={handleSubmit(onSubmit)} method="post">
           <input className="w-full p-2 mb-6 bg-green  border-b-2  outline-none focus:bg-gray-300" name="name" placeholder="Name" {...register('name', { required: true })} />
