@@ -39,12 +39,12 @@ const App = () => (
         }
       />
       <Route
-        path="/course_details"
-        element={
+        path="/course_details/:id"
+        element={(
           <Auth>
             <CourseDetails />
           </Auth>
-        }
+        )}
       />
       <Route
         path="/create_course"
@@ -65,7 +65,11 @@ const App = () => (
 
       <Route
         path="/add_enrolment"
-        element={(<AddEnrolment />)}
+        element={
+          <Auth>
+            <AddEnrolment />
+          </Auth>
+        }
       />
     </Routes>
   </Router>
