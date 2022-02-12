@@ -1,28 +1,69 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import course from '../images/course.jpg';
+import { React, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Offcanvas } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Enrolment from '../components/Enrolment';
 import NavLeft from '../components/NavLeft';
+import './enrolments.css';
+import { getEnrolments } from '../redux/enrolments/enrolments';
+import learning from '../images/learning.png';
 
 function MyEnrolment() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const enrolments = useSelector((state) => state.enrolmentsReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEnrolments());
+  }, [dispatch]);
   return (
     <div className="home">
-      <div className="nav">
-        <img src={course} className="course-logo" alt="" />
+      <div className="p-2 vis">
+        <FontAwesomeIcon icon={faBars} onClick={handleShow} />
+      </div>
+      <div className="nav pt-10">
+        <img src={learning} className="learning-logo" alt="learning Logo" />
         <NavLeft />
       </div>
       <div className="main">
-        <h1>My Enrolments</h1>
-        <h2>
-          You are able to cancel the Enrolment before 24 hours of the
-          Enrolment date
-        </h2>
-        <div className="enrolment">
-          {enrolments.map((enrolment) => (
+        <h1>My enrolments</h1>
+        {enrolments.length === 0 ? (
+          <h2 className="no-enrolment lh-lg mt-5 fs-4">
+            Oh Oh!
+            <br />
+            You do not have a enrolment yet
+            <br />
+            Kindly reserve course on the&nbsp;
+            <a href="/" className="text-danger">
+              HOME
+            </a>
+            &nbsp;page
+          </h2>
+        ) : (
+          <h2>
+            You are able to cancel
+          </h2>
+        )}
+        ;
+        <div className="enrolments">
+          {enrolments && enrolments.map((enrolment) => (
             <Enrolment enrolment={enrolment} key={enrolment.id} />
           ))}
         </div>
+        <Offcanvas className="darkened-off" show={show} onHide={handleClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>
+              <img src={learning} className="learning-logo" alt="learning Hotel Logo" />
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <NavLeft className="text-black" />
+          </Offcanvas.Body>
+        </Offcanvas>
       </div>
     </div>
   );

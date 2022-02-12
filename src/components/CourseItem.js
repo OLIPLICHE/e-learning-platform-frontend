@@ -1,68 +1,34 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
-import course from '../images/course.jpg';
 
-const CourseItem = ({ course, courses }) => {
+const CourseItem = ({ course }) => {
   const {
-    title, city, price, level, description, id,
+    name, id, picture,
   } = course;
 
   return (
     <Container className="course-item">
       <Row>
         <Col>
-          <Image className="course-image" src={course} alt="course" />
+          <Image className="course-image" src={picture} alt="Course course" />
         </Col>
       </Row>
       <Row>
         <Col>
-          {title && (
-            <h2>
-              title:
-              {' '}
-              {title}
+          {name && (
+            <h2 className="CourseName">
+              {name}
             </h2>
           )}
         </Col>
       </Row>
       <Row>
         <Col>
-          {city && (
-            <h3>
-              City Location:
-              {' '}
-              {city}
-            </h3>
-          )}
-          {price && (
-            <h3>
-              price:
-              {' '}
-              $
-              {price}
-            </h3>
-          )}
-          {level && (
-            <h3>
-              level:
-              {' '}
-              {level}
-            </h3>
-          )}
-          {description && (
-            <h3>
-              description:
-              {' '}
-              {description}
-            </h3>
-          )}
           {id && (
-            <Link to={{ pathname: 'course_details/' }}>Click me</Link>
+            <Link to={{ pathname: `course_details/${id}` }} className="btn btn-primary upperCase mb-2">See course</Link>
           )}
         </Col>
       </Row>
@@ -72,7 +38,6 @@ const CourseItem = ({ course, courses }) => {
 
 CourseItem.propTypes = {
   course: PropTypes.instanceOf(Object).isRequired,
-  courses: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default CourseItem;

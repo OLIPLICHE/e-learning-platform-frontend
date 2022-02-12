@@ -1,9 +1,9 @@
 const DELETE_ENROLMENT = 'enrolment/delete_enrolment';
 const FETCH_DATA = 'enrolments/FETCH_DATA';
 const UPDATE_STATE = 'enrolments/UPDATE_STATE';
-const CREATE_ENROLMENT = 'enrolments/CREATE_COURSE';
+const CREATE_ENROLMENT = 'enrolments/CREATE_ENROLMENT';
 
-const END_POINT = 'http://localhost:3000';
+const END_POINT = 'https://e-learning-back.herokuapp.com/';
 const API_ROUTE = '/api/v1/';
 
 const initialState = [];
@@ -25,7 +25,7 @@ export const dispatchEnrolments = (payload) => ({
 
 export const getEnrolments = () => async (dispatch) => {
   const token = localStorage.getItem('token');
-  const response = await fetch(`${END_POINT}${API_ROUTE}Enrolments`, {
+  const response = await fetch(`${END_POINT}${API_ROUTE}enrolments`, {
     headers: {
       Authorization: `${token}`,
     },
