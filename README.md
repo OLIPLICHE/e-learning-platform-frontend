@@ -1,10 +1,19 @@
 # e-learning platform FRONTEND
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
-This is a react app which will serve as the front end app for e-learning platform, the project is still under development, but some of the functionalites are finalized in the backend & front end, Which you can check it out.
+E-learning app is a learning institution app which serves as the first contact between the student who is willing to enrol for
+a course and the school. The project is 99% done and some of the functionalities are finalized in the backend & front end, Which can be checked out.
+
+## Entity Relationship diagram
+![Diagram](./elearning.JPG)
 
 ## Demo Link
 [Click here to see live demo](https://e-learning-platform-p.netlify.app/)
+
+## Link to the back end
+[Click here to see the back end](https://github.com/OLIPLICHE/e-learning-platform)
+
+
 
 ## The learning objective of this project are
 - Create react front end app
