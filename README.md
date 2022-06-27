@@ -2,7 +2,7 @@
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 E-learning app is a learning institution app which serves as the first contact between the student who is willing to enrol for
-a course and the school. The project is 99% done and some of the functionalities are finalized in the backend & front end, Which can be checked out...........
+a course and the school. The project is 99% done and some of the functionalities are finalized in the backend & front end, Which can be checked out.........
 
 ## Entity Relationship diagram
 ![Diagram](./elearning.JPG)
